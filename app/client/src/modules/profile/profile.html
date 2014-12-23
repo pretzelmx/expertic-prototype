@@ -1,0 +1,123 @@
+<section id="profile">
+	<div class="general">
+  		<div class="container">
+  			<ul class="col-md-6">
+  				<li><img ng-src="/assets/images/placeholder.png"></li>
+  				<li><h3>{{user.firstname}} {{user.lastname}}</h3></li>
+  				<li>{{user.email}}</li>
+  				<li>
+  					<p>
+  						<i class="fa fa-quote-left" ng-if="user.extract"></i>
+  						{{user.extract}}
+  						<i class="fa fa-quote-right" ng-if="user.extract"></i>
+  					</p>
+  				</li>
+  			</ul>
+  			<ul class="col-md-6">
+  				<li ng-if="editMode"><a href="/perfil/editar" class="btn btn-edit"><i class="fa fa-pencil"></i> Editar perfil</a></li>
+  				<li class="interests" ng-if="user.interests.length > 0">
+  					<strong>Mis intereses:</strong>
+  					<ul>
+  						<li ng-repeat="interest in user.interests">
+  							<img ng-if="interest == 'desarrollo'" ng-src="/assets/images/icon_development.png" title="Cursos de desarrollo">
+							<img ng-if="interest == 'infraestructura'" ng-src="/assets/images/icon_infrastructure.png" title="Cursos de infraestructura">
+							<img ng-if="interest == 'telecomunicaciones'" ng-src="/assets/images/icon_telecomunication.png" title="Cursos de telecomunicaciones">
+							<img ng-if="interest == 'soporte'" ng-src="/assets/images/icon_support.png" title="Cursos de soporte">
+							<img ng-if="interest == 'seguridad'" ng-src="/assets/images/icon_security.png" title="Cursos de seguridad">
+  						</li>
+  					</ul>
+  				</li>
+  			</ul>
+  		</div>
+	</div>
+	<div class="panel panel-default detail">
+  		<div class="panel-body">
+			<div class="col-md-6">
+				<h3><i class="fa fa-user"></i> DATOS GENERALES</h3>
+				<ul>
+					<li>
+						<strong>Nombre completo</strong>
+						<span>{{user.firstname}} {{user.lastname}}</span>
+					</li>
+					<li>
+						<strong>Dependencia de trabajo</strong>
+						<span>{{user.dependency.name}}</span>
+					</li>
+					<li>
+						<strong>Área de trabajo</strong>
+						<span>{{user.area}}</span>
+					</li>
+					<li>
+						<strong>Puesto de trabajo</strong>
+						<span>{{user.job}}</span>
+					</li>
+					<li>
+						<strong>Tiempo en el puesto de trabajo</strong>
+						<span>{{user.time_working}} meses</span>
+					</li>
+					<li ng-if="user.social_network">
+						<strong>Red social profesional</strong>
+						<span><a class="social-network" ng-href="{{user.social_network}}" target="_blank">{{user.social_network}}</a></span>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-6" ng-if="user.studies.length > 0 || user.skills.length > 0 || user.trainings.length > 0">
+				<h3><i class="fa fa-graduation-cap"></i> FORMACIÓN</h3>
+				<ul>
+					<li ng-if="user.studies.length > 0">
+						<strong>Educación profesional</strong>
+						<span ng-repeat="studie in user.studies">
+							<ul class="studies">
+								<li>
+									<span>{{studie.title}}</span>
+									<strong>{{studie.description}}</strong>
+								</li>
+							</ul>
+						</span>
+					</li>
+					<li ng-if="user.skills.length > 0">
+						<strong>Habilidades técnicas ({{user.skills.length}})</strong>
+						<span ng-repeat="skill in user.skills">
+							<ul class="skills">
+								<li>
+									<span>{{skill}}</span>
+								</li>
+							</ul>
+						</span>
+					</li>
+					<li ng-if="user.trainings.length > 0">
+						<strong>Cursos / Certificaciones ({{user.trainings.length}})</strong>
+						<span ng-repeat="training in user.trainings">
+							<ul class="trainings">
+								<li>
+									<span>{{training.title}}</span>
+									<strong>{{training.description}}</strong>
+								</li>
+							</ul>
+						</span>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-12" ng-if="user.career.length > 0">
+				<h3><i class="fa fa-building"></i> EXPERIENCIA LABORAL</h3>
+				<ul class="career">
+					<li ng-repeat="job in user.career" class="col-md-4">
+						<strong>{{job.title}} - ({{job.time_working}} meses)</strong>
+						<span>Sector {{job.sector}}</span>
+						<p>{{job.description}}</p>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-12" ng-if="user.courses.length > 0">
+				<h3><i class="fa fa-book"></i> PLAN DE CRECIMIENTO PROFESIONAL</h3>
+				<ul class="courses">
+					<li ng-repeat="course in user.courses" class="col-md-4">
+						<strong>{{course.name}}</strong>
+						<span>Curso de {{course.category}}</span>
+						<p>{{course.description}}</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,33 @@
+<section id="adm-dependencies">
+	<h1>Dependencias</h1>
+	<div class="panel panel-default">
+  		<div class="panel-body">
+  			<input type="text" class="form-control" placeholder="Buscar dependencia..." ng-model="search">
+  			<button class="btn btn-add" ng-click="addDependency()"><i class="fa fa-plus"></i> Agregar dependencia</button>
+  		</div>
+  	</div>
+	<div class="panel panel-default">
+  		<div class="panel-body">
+  			<table class="table table-striped">
+  				<thead>
+  					<th>Opciones</th>
+  					<th>Nombre</th>
+  					<th>Secretario</th>
+            <th>Administrador</th>
+  				</thead>
+  				<tbody>
+  					<tr ng-repeat="dependency in dependencies | filter:search | orderBy:'updated_at':true">
+  						<td>
+  							<button class="btn btn-view" ng-click="view(dependency._id)"><i class="fa fa-eye"></i></button>
+  							<button class="btn btn-edit" ng-click="edit(dependency._id)"><i class="fa fa-pencil"></i></button>
+  							<button class="btn btn-remove" ng-click="remove(dependency)"><i class="fa fa-trash"></i></button>
+  						</td>
+  						<td>{{dependency.name}}</td>
+  						<td>{{dependency.responsible}}</td>
+              <td>{{dependency.admin.firstname}} {{dependency.admin.lastname}}</td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
+  	</div>
+</section>

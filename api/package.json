@@ -1,0 +1,28 @@
+{
+  "name": "expertic",
+  "version": "0.1.0",
+  "description": "RESTful API ExperTIC",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://bitbucket.org/adminpretzel/expertic-api-prototype.git"
+  },
+  "author": "Pretzel",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "express": "4.10.4",
+    "express-validator": "2.7.0",
+    "socket.io": "1.2.1",
+    "body-parser": "1.9.3",
+    "cookie-parser": "1.3.3",
+    "method-override": "2.3.0",
+    "mongodb": "1.4.22",
+    "mongoose": "3.8.19",
+    "nodemailer": "1.3.0",
+    "mongoose-timestamp": "0.3.0"
+  }
+}

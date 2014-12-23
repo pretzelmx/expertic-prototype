@@ -1,0 +1,35 @@
+<section id="business">
+	<h1>Empresas</h1>
+	<div class="panel panel-default">
+  		<div class="panel-body">
+  			<input type="text" class="form-control" placeholder="Buscar empresa..." ng-model="search">
+  			<button class="btn btn-add" ng-click="addBusiness()"><i class="fa fa-plus"></i> Agregar empresa</button>
+  		</div>
+  	</div>
+	<div class="panel panel-default">
+  		<div class="panel-body">
+  			<table class="table table-striped">
+  				<thead>
+  					<th>Opciones</th>
+  					<th>Correo</th>
+  					<th>Nombre</th>
+  					<th>RFC</th>
+  					<th>Responsable</th>
+  				</thead>
+  				<tbody>
+  					<tr ng-repeat="biz in business | filter:search | orderBy:'updated_at':true">
+  						<td>
+  							<button class="btn btn-view" ng-click="view(biz._id)"><i class="fa fa-eye"></i></button>
+  							<button class="btn btn-edit" ng-click="edit(biz._id)"><i class="fa fa-pencil"></i></button>
+  							<button class="btn btn-remove" ng-click="remove(biz)"><i class="fa fa-trash"></i></button>
+  						</td>
+  						<td>{{biz.email}}</td>
+  						<td>{{biz.name}}</td>
+  						<td>{{biz.rfc}}</td>
+  						<td>{{biz.responsible}}</td>
+  					</tr>
+  				</tbody>
+  			</table>
+  		</div>
+  	</div>
+</section>

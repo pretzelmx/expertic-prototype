@@ -1,0 +1,46 @@
+<div id="business-show">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" ng-click="close()">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title"><i class="fa {{data.icon}}"></i> {{data.title}}</h3>
+    </div>
+    <div class="modal-body row">
+        <p>{{data.message}}</p>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                <span>{{business.email}}</span>
+            </div>
+            <div class="form-group">
+                <label>RFC</label>
+                <span>{{business.rfc}}</span>
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <span>{{business.name}}</span>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <span>{{business.description}}</span>
+            </div>
+            <div class="form-group">
+                <label>Responsable</label>
+                <span>{{business.responsible}}</span>
+            </div>
+            <div class="form-group">
+                <label>Categoría:</label>
+                <ul>
+                    <li ng-repeat="category in business.categories">
+                        <img ng-if="category == 'desarrollo'" class="selected" ng-src="/assets/images/icon_development_dark.png" title="Empresa de desarrollo">
+                        <img ng-if="category == 'infraestructura'" class="selected" ng-src="/assets/images/icon_infrastructure_dark.png" title="Empresa de infraestructura">
+                        <img ng-if="category == 'telecomunicaciones'" class="selected" ng-src="/assets/images/icon_telecomunication_dark.png" title="Empresa de telecomunicaciones">
+                        <img ng-if="category == 'soporte'" class="selected" ng-src="/assets/images/icon_support_dark.png" title="Empresa de soporte">
+                        <img ng-if="category == 'seguridad'" class="selected" ng-src="/assets/images/icon_security_dark.png" title="Empresa de seguridad">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="close()">Cerrar</button>
+    </div>
+</div>

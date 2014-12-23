@@ -1,0 +1,32 @@
+<div id="dependency-edit">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" ng-click="cancelDependency()">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title"><i class="fa {{data.icon}}"></i> {{data.title}}</h3>
+    </div>
+    <div class="modal-body row">
+        <p>{{data.message}}</p>
+        <form class="col-md-12">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" value="{{dependency.name}}" ng-model="dependency.name" placeholder="Nombre de la dependencia">
+            </div>
+             <div class="form-group">
+                <label>Descripción</label>
+                <textarea ng-model="dependency.description" placeholder="Descripción de la dependencia">{{dependency.description}}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Secretario</label>
+                <input type="text" value="{{dependency.responsible}}" ng-model="dependency.responsible" placeholder="Nombre del secretario">
+            </div>
+            <div class="form-group">
+                <label>Administrador en la plataforma</label>
+                <select ng-options="item._id as (item.firstname + ' ' + item.lastname) for item in users" ng-model="dependency.admin">
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="saveDependency()">Confirmar</button>
+        <button class="btn btn-default" ng-click="cancelDependency()">Cancelar</button>
+    </div>
+</div>

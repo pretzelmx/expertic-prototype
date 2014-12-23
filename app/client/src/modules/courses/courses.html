@@ -1,0 +1,48 @@
+<section id="courses">
+	<article class="filters" ng-if="courses.length > 0">
+		<div class="container">
+			<figure>
+				<img ng-if="section == 'desarrollo'" ng-src="/assets/images/icon_development_dark.png" title="Curso de desarrollo">
+				<img ng-if="section == 'infraestructura'" ng-src="/assets/images/icon_infrastructure_dark.png" title="Curso de infraestructura">
+				<img ng-if="section == 'telecomunicaciones'" ng-src="/assets/images/icon_telecomunication_dark.png" title="Curso de telecomunicaciones">
+				<img ng-if="section == 'soporte'" ng-src="/assets/images/icon_support_dark.png" title="Curso de soporte">
+				<img ng-if="section == 'seguridad'" ng-src="/assets/images/icon_security_dark.png" title="Curso de seguridad">
+				<img ng-if="section == 'otros'" ng-src="/assets/images/icon_other_dark.png" title="Curso">
+			</figure>
+			<h3>Cursos de {{section}} (<strong>{{courses.length}}</strong>)</h3>
+		</div>
+	</article>
+	<article class="row courses">
+		<ul class="row col-md-12">
+			<li class="col-md-3" ng-repeat="course in courses">
+				<div class="course" ng-click="open(course._id)">
+					<div class="header">
+						<img ng-if="course.category == 'desarrollo'" ng-src="/assets/images/icon_development.png" title="Curso de {{course.category}}">
+						<img ng-if="course.category == 'infraestructura'" ng-src="/assets/images/icon_infrastructure.png" title="Curso de {{course.category}}">
+						<img ng-if="course.category == 'telecomunicaciones'" ng-src="/assets/images/icon_telecomunication.png" title="Curso de {{course.category}}">
+						<img ng-if="course.category == 'soporte'" ng-src="/assets/images/icon_support.png" title="Curso de {{course.category}}">
+						<img ng-if="course.category == 'seguridad'" ng-src="/assets/images/icon_security.png" title="Curso de {{course.category}}">
+						<img ng-if="course.category == 'otros'" ng-src="/assets/images/icon_other.png" title="Curso">
+						<span ng-class="{new: course.status == 'nuevo', initiated: course.status == 'iniciado', closed: course.status == 'terminado'}">{{course.status}}</span>
+						<strong>{{course.name | limitTo: 35}}<i ng-if="course.name.length > 35">...</i></strong>
+						<p>por: <strong>{{course.business.name | limitTo: 30}}<i ng-if="course.business.name.length > 35">...</i></strong></p>
+					</div>
+					<div class="body">
+						<p>
+							{{course.description | limitTo: 100}}<i ng-if="course.description.length > 100">...</i>
+						</p>
+					</div>
+					<div class="footer">
+						<span>{{course.created_at | date:"d 'de' MMMM 'de' yyyy"}}</span> - <span>{{course.created_at | date:"shortTime"}}</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<div class="empty-category" ng-if="courses.length == 0">
+			<img ng-src="/assets/images/icon_empty.png">
+			<p>
+				No hay cursos sobre: <strong>{{section}}</strong>
+			</p>
+		</div>
+	</article>
+</section>

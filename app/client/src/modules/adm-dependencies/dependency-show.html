@@ -1,0 +1,30 @@
+<div id="dependency-show">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" ng-click="close()">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title"><i class="fa {{data.icon}}"></i> {{data.title}}</h3>
+    </div>
+    <div class="modal-body row">
+        <p>{{data.message}}</p>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Nombre</label>
+                <span>{{dependency.name}}</span>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <span>{{dependency.description}}</span>
+            </div>
+            <div class="form-group">
+                <label>Nombre del secretario</label>
+                <span>{{dependency.responsible}}</span>
+            </div>
+            <div class="form-group">
+                <label>Administrador en la plataforma</label>
+                <span>{{dependency.admin.firstname}} {{dependency.admin.lastname}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="close()">Cerrar</button>
+    </div>
+</div>

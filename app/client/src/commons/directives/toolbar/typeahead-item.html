@@ -1,0 +1,7 @@
+<a class="item-typeahead">
+	<i class="fa" ng-class="{'fa-user': match.model.type == 'Persona', 'fa-book': match.model.type == 'Curso', 'fa-building': match.model.type == 'Empresa'}"></i>
+	<div class="text">
+		<span bind-html-unsafe="match.label"></span>
+		<strong bind-html-unsafe="match.model.type"></strong>
+	</div>
+</a>

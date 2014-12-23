@@ -1,0 +1,55 @@
+<section id="login" ng-if="!isHome()">
+	<div class="header">
+		<img ng-src="/assets/images/logo_short.png">
+	</div>
+	<form role="form" ng-submit="login(credential)">
+		<div class="form-group">
+			<label for="email">Correo electrónico</label>
+			<input type="text" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico" ng-model="credential.email" ng-trim="true">
+		</div>
+		<div class="form-group">
+			<label for="password">Contraseña</label>
+			<input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" ng-model="credential.password" ng-trim="true">
+		</div>
+		<input type="submit" class="btn btn-default" value="Ingresar">
+	</form>
+</section>
+<section id="home" ng-if="isHome()">
+	<article class="row courses" ng-repeat="section in sections" ng-if="section.courses.length > 0">
+		<div class="main">
+			<h3>Cursos de {{section.category}} <i ng-if="section.interest" class="fa fa-check-circle"><span>(Recomendados)</span></i></h3>
+			<a ng-href="/cursos/{{section.category}}" class="btn">Mostrar todos los cursos <span class="badge">{{section.total}} / {{total}}</span></a>
+		</div>
+		<ul class="row col-md-12">
+			<li class="col-md-3" ng-repeat="course in section.courses">
+				<div class="course" ng-click="open(course._id)">
+					<div class="header">
+						<img ng-if="course.category == 'desarrollo'" ng-src="/assets/images/icon_development.png" title="Curso de {{course.category}}">
+						<img ng-if="course.category == 'infraestructura'" ng-src="/assets/images/icon_infrastructure.png" title="Curso de {{course.category}}">
+						<img ng-if="course.category == 'telecomunicaciones'" ng-src="/assets/images/icon_telecomunication.png" title="Curso de {{course.category}}">
+						<img ng-if="course.category == 'soporte'" ng-src="/assets/images/icon_support.png" title="Curso de {{course.category}}">
+						<img ng-if="course.category == 'seguridad'" ng-src="/assets/images/icon_security.png" title="Curso de {{course.category}}">
+						<img ng-if="course.category == 'otros'" ng-src="/assets/images/icon_other.png" title="Curso">
+						<span ng-class="{new: course.status == 'nuevo', initiated: course.status == 'iniciado', closed: course.status == 'terminado'}">{{course.status}}</span>
+						<strong>{{course.name | limitTo: 35}}<i ng-if="course.name.length > 35">...</i></strong>
+						<p>por: <strong>{{course.business.name | limitTo: 30}}<i ng-if="course.business.name.length > 35">...</i></strong></p>
+					</div>
+					<div class="body">
+						<p>
+							{{course.description | limitTo: 100}}<i ng-if="course.description.length > 100">...</i>
+						</p>
+					</div>
+					<div class="footer">
+						<span>{{course.created_at | date:"d 'de' MMMM 'de' yyyy"}}</span> - <span>{{course.created_at | date:"shortTime"}}</span>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</article>
+	<article class="empty" ng-if="total == 0">
+		<img ng-src="/assets/images/icon_empty.png">
+		<p>
+			No hay cursos en la plataforma
+		</p>
+	</article>
+</section>

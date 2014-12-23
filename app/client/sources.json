@@ -1,0 +1,12 @@
+{
+  "angularFiles": ["bower_components/angular/angular.js", "bower_components/angular-route/angular-route.js", "bower_components/angular-cookie/angular-cookie.js", "bower_components/angular-i18n/angular-locale_es-mx.js", "bower_components/angular-animate/angular-animate.js", "bower_components/angular-sanitize/angular-sanitize.js", "bower_components/ngtoast/dist/ngToast.js"],
+  "jsFiles": ["bower_components/jquery/dist/jquery.js", "bower_components/bootstrap/dist/js/bootstrap.js", "bower_components/angular-bootstrap/ui-bootstrap.js", "bower_components/angular-bootstrap/ui-bootstrap-tpls.js"],
+  "cssFiles": ["bower_components/normalize.css/normalize.css", "bower_components/bootstrap/dist/css/bootstrap.css", "bower_components/font-awesome/css/font-awesome.css", "bower_components/ngtoast/dist/ngToast.css"],
+  "templates": {
+    "modules": ["src/modules/**/*.html"],
+    "commons": ["src/commons/**/*.html"],
+    "general": ["src/header.html", "src/footer.html"]
+  },
+  "modulesFiles": ["src/**/*.js", "<%= distDir %>/templates/**/*.js"],
+  "lessFiles": ["src/less/variables.less", "src/less/main.less", "src/less/modules.less"]
+}

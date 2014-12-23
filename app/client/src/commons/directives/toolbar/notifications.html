@@ -1,0 +1,44 @@
+<div id="modal-notification">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" ng-click="close()">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title"><i class="fa fa-bell"></i> NOTIFICACIONES (<strong>2</strong>)</h4>
+    </div>
+    <div class="modal-body">
+        <ul class="notifications">
+            <li>
+                <div class="notification">
+                    <img ng-src="/assets/images/logo_short.png">
+                    <strong>¡CURSO NUEVO DE INTERÉS!</strong>
+                    <ul>
+                        <li>Programación de aplicaciones web modernas con Angular.js y Node.js</li>
+                        <li>por: <strong>Pretzel Development</strong></li>
+                    </ul>
+                    <p>
+                        Aplicaciones web modernas usando angular.js como base principal para el front-end y node.js en el lado del back-end
+                    </p>
+                    <div class="modal-footer">
+                        <button class="btn btn-default">Ver curso</button>
+                        <button class="btn btn-primary">Tomar curso</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="notification">
+                    <img class="profile" ng-src="/assets/images/placeholder.png">
+                    <strong>Jesús Ruiz quiere agregarte como compañero</strong>
+                    <p>
+                        Hola me gustaría agregarte dentro de mis contactos.
+                    </p>
+                    <div class="modal-footer">
+                        <button class="btn btn-default">Ver perfil</button>
+                        <button class="btn btn-primary">Aceptar</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Ver todas</button>
+        <button class="btn btn-default">Marcar como leidas</button>
+    </div>
+</div>

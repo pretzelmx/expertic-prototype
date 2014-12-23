@@ -1,0 +1,158 @@
+<div id="user-edit">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" ng-click="cancelUser()">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title"><i class="fa {{data.icon}}"></i> {{data.title}}</h3>
+    </div>
+    <div class="modal-body row">
+        <p>{{data.message}}</p>
+        <form class="col-md-6 border">
+            <div class="form-group">
+                <label>Mis intereses:</label>
+                <ul>
+                    <li>
+                        <img ng-class="{selected: interests[0].status}" ng-src="/assets/images/icon_development_dark.png" title="Cursos de desarrollo" ng-click="selectImage(0)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: interests[1].status}" ng-src="/assets/images/icon_infrastructure_dark.png" title="Cursos de infraestructura" ng-click="selectImage(1)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: interests[2].status}" ng-src="/assets/images/icon_telecomunication_dark.png" title="Cursos de telecomunicaciones" ng-click="selectImage(2)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: interests[3].status}" ng-src="/assets/images/icon_support_dark.png" title="Cursos de soporte" ng-click="selectImage(3)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: interests[4].status}" ng-src="/assets/images/icon_security_dark.png" title="Cursos de seguridad" ng-click="selectImage(4)">
+                    </li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label>Extracto</label>
+                <textarea ng-model="user.extract" placeholder="Extracto">{{user.extract}}</textarea>
+            </div>
+            <div class="form-group" ng-if="editMode">
+                <input type="button" class="btn btn-password" value="Actualizar contraseña" ng-click="updatePassword()">
+            </div>
+            <div class="form-group" ng-if="!editMode">
+                <label>Contraseña</label>
+                <input type="password" value="{{user.password}}" ng-model="user.password" placeholder="Contraseña">
+            </div>
+            <div class="form-group">
+                <label>Permiso</label>
+                <p>Dar permiso al usuario para que administre la plataforma de capacitación ExperTIC</p>
+                <a ng-class="{'no-root': !isRoot}" ng-click="setRoot()">Administrador ExperTIC <i ng-if="isRoot" class="fa fa-check-circle"></i></a>
+            </div>
+            <h3><i class="fa fa-user"></i> DATOS GENERALES</h3>
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                <input type="text" value="{{user.email}}" ng-model="user.email" placeholder="Correo electrónico">
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" value="{{user.firstname}}" ng-model="user.firstname" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" value="{{user.lastname}}" ng-model="user.lastname" placeholder="Apellido">
+            </div>
+            <div class="form-group">
+                <label>Dependencia</label>
+                <select ng-options="item._id as item.name for item in dependencies" ng-model="user.dependency">
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Área de trabajo</label>
+                <input type="text" value="{{user.area}}" ng-model="user.area" placeholder="Nombre de la área">
+            </div>
+            <div class="form-group">
+                <label>Puesto de trabajo</label>
+                <input type="text" value="{{user.job}}" ng-model="user.job" placeholder="Nombre del puesto">
+            </div>
+            <div class="form-group">
+                <label>Tiempo en el puesto (Meses)</label>
+                <input type="text" value="{{user.time_working}}" ng-model="user.time_working" placeholder="Tiempo en el puesto (Meses)">
+            </div>
+            <div class="form-group">
+                <label>Red social profesional</label>
+                <input type="text" value="{{user.social_network}}" ng-model="user.social_network" placeholder="Link (LinkedIn, GitHub)">
+            </div>
+        </form>
+        <div class="col-md-6">
+            <div>
+                <h3><i class="fa fa-graduation-cap"></i> FORMACIÓN</h3>
+                <strong>Educación profesional</strong>
+                <span ng-repeat="studie in user.studies">
+                    <ul class="studies">
+                        <li>
+                            <div class="content">
+                                <span>{{studie.title}}</span>
+                                <strong>{{studie.description}}</strong>
+                            </div>
+                            <div class="options">
+                                <a class="btn btn-edit" ng-click="edit('studies', $index)"><i class="fa fa-pencil"></i> Editar</a>
+                                <a class="btn btn-trash" ng-click="remove('studies', $index)"><i class="fa fa-trash"></i> Eliminar</a>
+                            </div>
+                        </li>
+                    </ul>
+                </span>
+                <a class="btn btn-add" ng-click="add('studies')"><i class="fa fa-plus"></i> Agregar</a>
+            </div>
+            <div>
+                <strong>Habilidades técnicas ({{user.skills.length}})</strong>
+                <span ng-repeat="skill in user.skills">
+                    <ul class="skills">
+                        <li>
+                            <div class="content">
+                                <span>{{skill}}</span>
+                            </div>
+                            <div class="options">
+                                <a class="btn btn-edit" ng-click="edit('skills', $index)"><i class="fa fa-pencil"></i> Editar</a>
+                                <a class="btn btn-trash" ng-click="remove('skills', $index)"><i class="fa fa-trash"></i> Eliminar</a>
+                            </div>
+                        </li>
+                    </ul>
+                </span>
+                <a class="btn btn-add" ng-click="add('skills')"><i class="fa fa-plus"></i> Agregar</a>
+            </div>
+            <div>
+                <strong>Cursos / Certificaciones ({{user.trainings.length}})</strong>
+                <span ng-repeat="training in user.trainings">
+                    <ul class="trainings">
+                        <li>
+                            <div class="content">
+                                <span>{{training.title}}</span>
+                                <strong>{{training.description}}</strong>
+                            </div>
+                            <div class="options">
+                                <a class="btn btn-edit" ng-click="edit('trainings', $index)"><i class="fa fa-pencil"></i> Editar</a>
+                                <a class="btn btn-trash" ng-click="remove('trainings', $index)"><i class="fa fa-trash"></i> Eliminar</a>
+                            </div>
+                        </li>
+                    </ul>
+                </span>
+                <a class="btn btn-add" ng-click="add('trainings')"><i class="fa fa-plus"></i> Agregar</a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <h3><i class="fa fa-building"></i> EXPERIENCIA LABORAL</h3>
+            <ul class="career row">
+                <li ng-repeat="job in user.career" class="col-md-4">
+                    <div class="content">
+                        <strong>{{job.title}} - ({{job.time_working}} meses)</strong>
+                        <span>Sector {{job.sector}}</span>
+                        <p>{{job.description}}</p>
+                    </div>
+                    <div class="options">
+                        <a class="btn btn-edit" ng-click="edit('career', $index)"><i class="fa fa-pencil"></i> Editar</a>
+                        <a class="btn btn-trash" ng-click="remove('career', $index)"><i class="fa fa-trash"></i> Eliminar</a>
+                    </div>
+                </li>
+            </ul>
+            <a class="btn btn-add" ng-click="add('career')" ng-if="user.career.length < 2"><i class="fa fa-plus"></i> Agregar</a>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="saveUser()">Confirmar</button>
+        <button class="btn btn-default" ng-click="cancelUser()">Cancelar</button>
+    </div>
+</div>

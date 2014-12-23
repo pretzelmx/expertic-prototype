@@ -1,0 +1,64 @@
+<div id="business-edit">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" ng-click="cancelBusiness()">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title"><i class="fa {{data.icon}}"></i> {{data.title}}</h3>
+    </div>
+    <div class="modal-body row">
+        <p>{{data.message}}</p>
+        <form class="col-md-6 border">
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                <input type="text" value="{{business.email}}" ng-model="business.email" placeholder="Correo electrónico">
+            </div>
+            <div class="form-group">
+                <label>RFC</label>
+                <input type="text" value="{{business.rfc}}" ng-model="business.rfc" placeholder="RFC">
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" value="{{business.name}}" ng-model="business.name" placeholder="Nombre de la empresa">
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea ng-model="business.description" placeholder="Descripción (¿Qué hace la empresa?">{{business.description}}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Responsable</label>
+                <input type="text" value="{{business.responsible}}" ng-model="business.responsible" placeholder="Responsable de la empresa">
+            </div>
+        </form>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Categoría:</label>
+                <ul>
+                    <li>
+                        <img ng-class="{selected: categories[0].status}" ng-src="/assets/images/icon_development_dark.png" title="Empresa de desarrollo" ng-click="selectImage(0)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: categories[1].status}" ng-src="/assets/images/icon_infrastructure_dark.png" title="Empresa de infraestructura" ng-click="selectImage(1)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: categories[2].status}" ng-src="/assets/images/icon_telecomunication_dark.png" title="Empresa de telecomunicaciones" ng-click="selectImage(2)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: categories[3].status}" ng-src="/assets/images/icon_support_dark.png" title="Empresa de soporte" ng-click="selectImage(3)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: categories[4].status}" ng-src="/assets/images/icon_security_dark.png" title="Empresa de seguridad" ng-click="selectImage(4)">
+                    </li>
+                </ul>
+            </div>
+            <div class="form-group" ng-if="editMode">
+                <input type="button" class="btn btn-password" value="Actualizar contraseña" ng-click="updatePassword()">
+            </div>
+            <div class="form-group" ng-if="!editMode">
+                <label>Contraseña</label>
+                <input type="password" value="{{business.password}}" ng-model="business.password" placeholder="Contraseña">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="saveBusiness()">Confirmar</button>
+        <button class="btn btn-default" ng-click="cancelBusiness()">Cancelar</button>
+    </div>
+</div>

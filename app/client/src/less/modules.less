@@ -1,0 +1,729 @@
+@import 'variables.less';
+
+#login {
+	.header {
+		text-align: center;
+		padding: 20px 0 40px 0;
+		img {
+			width: 111px;
+		}
+	}
+	form {
+		width: 300px;
+		margin: 0 auto;
+		label {
+			color: @gris-claro - 100;
+		}
+		input[type="submit"] {
+			&:hover {
+				background-color: @principal - 10;
+			}
+			width: 100%;
+			padding: 14px 0;
+			background-color: @principal;
+			color: @white;
+			border: none;
+		}
+	}
+}
+
+#home {
+	.courses {
+		&:last-child {
+			border-bottom: none;
+		}
+		padding-top: 30px;
+		padding-bottom: 30px;
+		border-bottom: 1px solid @principal;
+		color: @principal;
+		.main {
+			overflow: hidden;
+			margin-bottom: 10px;
+			h3 {
+				margin: 0;
+				padding: 0;
+				float: left;
+				text-transform: uppercase;
+				font-weight: @normal;
+				i {
+					margin-left: 5px;
+					color: @principal;
+					span {
+						font-size: 11px;
+						font-weight: @bold;
+						margin-left: 5px;
+					}
+				}
+			}
+			a {
+				&:hover {
+					background-color: @principal - 20;
+				}
+				float: right;
+				background-color: @principal;
+				color: @white;
+				margin: 0;
+				margin-right: 2px;
+				margin-bottom: 5px;
+				padding: 10px 15px;
+				span {
+					margin-left: 5px;
+					background-color: @white;
+					color: @principal;
+				}
+			}
+		}
+	}
+}
+
+#modal-course {
+	.modal-header {
+		background-color: @principal;
+		color: @white;
+		.close {
+			color: @white;
+			font-size: 24px;
+			font-weight: @normal;
+			opacity: 1.0;
+		}
+		img {
+			float: left;
+			width: 50px;
+			height: 50px;
+			margin-right: 12px;
+			margin-top: 7px;
+		}
+		.text {
+			margin-top: 10px;
+			h3 {
+				font-size: 20px;
+				line-height: 20px;
+				margin: 0;
+			}
+			h4 {
+				margin-top: 6px;
+			}
+			span {
+				color: @white;
+				font-size: 11px;
+				font-weight: @bold;
+				padding: 3px;
+				border-radius: 4px;
+				margin-left: 6px;
+				text-transform: uppercase;
+			}
+			.new {
+				background-color: @warning;
+			}
+			.initiated {
+				background-color: @success;
+			}
+			.closed {
+				background-color: @danger;
+			}
+		}
+	}
+	.modal-body {
+		padding: 25px;
+		overflow: hidden;
+		p {
+			margin: 0;
+			margin-bottom: 25px;
+			font-size: 15px;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			li {
+				text-transform: uppercase;
+				font-weight: @bold;
+				padding: 5px 0;
+				strong {
+					color: @principal;
+					display: block;
+					font-weight: @bold;
+					font-size: 12px;
+				}
+			}
+		}
+	}
+	.modal-footer {
+		text-align: left;
+		padding-left: 20px;
+		.btn-primary {
+			padding: 10px 20px;
+			border: none;
+			background-color: @principal;
+			border: 1px solid @principal;
+			&:hover {
+				background-color: @principal - 20;
+			}
+		}
+		.btn-default {
+			padding: 10px 20px;
+			border-color: @principal;
+			color: @principal;
+			border: 1px solid @principal;
+		}
+	}
+}
+
+#home, #courses {
+	.courses .row {
+		color: @white;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline-block;
+			padding: 0 2px;
+			margin-bottom: 5px;
+			.course {
+				&:hover {
+					background-color: @principal - 20;
+				}
+				background-color: @principal;
+				cursor: pointer;
+				.header {
+					padding: 20px;
+					padding-bottom: 0;
+					img {
+						width: 50px;
+						height: 50px;
+						margin-bottom: 15px;
+					}
+					span {
+						float: right;
+						color: @white;
+						font-size: 11px;
+						font-weight: @bold;
+						padding: 5px;
+						border-radius: 4px;
+						text-transform: uppercase;
+					}
+					.new {
+						background-color: @warning;
+					}
+					.initiated {
+						background-color: @success;
+					}
+					.closed {
+						background-color: @danger;
+					}
+					strong {
+						display: block;
+						font-weight: @bold;
+					}
+					p {
+						font-weight: @normal;
+						strong {
+							display: inline-block;
+							font-weight: @bold;
+						}
+					}
+				}
+				.body {
+					padding: 0 20px;
+				}
+				.footer {
+					background-color: @principal - 40;
+					margin: 0;
+					margin-top: 15px;
+					padding: 10px 20px;
+					span {
+						color: @white;
+						text-transform: uppercase;
+						font-size: 11px;
+					}
+				}
+			}
+		}
+	}
+	.empty, .empty-category {
+		text-align: center;
+		color: @gris-claro - 40;
+		font-size: 16px;
+		img {
+			width: 100px;
+			height: 100px;
+			margin-bottom: 10px;
+		}
+	}
+	.empty {
+		margin-top: 80px;
+	}
+}
+
+#courses {
+	.filters {
+		position: fixed;
+		left: 0;
+		top: 50px;
+		width: 100%;
+		background-color: rgba(246, 246, 246, 0.95);
+		z-index: 1;
+		.container {
+			figure {
+				margin: 20px 0;
+				float: left;
+				img {
+					margin: 0 auto;
+					width: 50px;
+					height: 50px;
+				}
+			}
+			h3 {
+				margin-top: 32px;
+				margin-left: 65px;
+				color: @principal;
+				text-transform: uppercase;
+			}
+		}
+	}
+	.courses {
+		margin-top: 86px;
+	}
+}
+
+#profile, #profile-edit {
+	.general {
+		position: absolute;
+		left: 0;
+		top: 50px;
+		border: none;
+		border-top: 1px solid @principal - 20;
+		border-radius: 0px;
+		width: 100%;
+		background-color: @principal;
+		.container {
+			padding: 30px 70px;
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				li {
+					color: @white;
+					img {
+						width: 80px;
+						height: 80px;
+						border-radius: 100%;
+						margin-right: 30px;
+						float: left;
+						border: 3px solid @white;
+					}
+					h3 {
+						margin: 0;
+						padding: 0;
+					}
+					.fa-quote-left {
+						margin-right: 4px;
+					}
+					.fa-quote-right {
+						margin-left: 4px;
+					}
+					p {
+						width: 70%;
+						float: left;
+						margin-top: -20px;
+						margin-left: 110px;
+					}
+					.btn {
+						background-color: @white;
+						color: @principal;
+						margin-bottom: 5px;
+						float: right;
+					}
+					strong {
+						display: block;
+						margin: 10px 0;
+					}
+				}
+				.interests {
+					margin-top: 50px;
+					ul {
+						list-style: none;
+						margin: 0;
+						padding: 0;
+						li {
+							display: inline-block;
+							margin-right: 10px;
+							img {
+								width: 50px;
+								height: 50px;
+								border-radius: 0;
+								margin-right: 10px;
+								border: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.detail {
+		width: 90%;
+		margin: 0 auto;
+		margin-top: 195px;
+		padding: 20px 40px;
+		h3 {
+			color: @principal;
+		}
+		ul {
+			list-style: none;
+			li {
+				margin: 20px 0;
+				strong, span {
+					display: block;
+				}
+				strong {
+					color: @principal;
+				}
+				.social-network {
+					text-decoration: underline;
+				}
+				.studies, .skills, .trainings {
+					list-style: disc;
+					li {
+						margin: 0;
+						margin-top: 10px;
+					}
+				}
+			}
+		}
+		.career, .courses {
+			li {
+				span {
+					font-weight: @bold;
+					text-transform: uppercase;
+					font-size: 12px;
+				}
+				p {
+					width: 100%;
+					margin-top: 2px;
+				}
+			}
+		}
+	}
+}
+
+#profile-edit {
+	input {
+		height: 40px;
+		padding: 0 10px;
+		font-size: 14px;
+	}
+	input[type="text"] {
+		margin: 0;
+		margin-right: 7px;
+		width: 30%;
+	}
+	textarea {
+		min-height: 100px;
+		height: 100px;
+		max-height: 100px;
+		min-width: 62%;
+		width: 62%;
+		max-width: 62%;
+		padding: 10px;
+		font-size: 14px;
+		float: left;
+		margin-top: -30px;
+		margin-left: 110px;
+	}
+	.general {
+		.container {
+			ul {
+				li {
+					.btn-cancel {
+						margin-right: 5px;
+						color: @danger;
+					}
+				}
+				.interests {
+					img {
+						opacity: 0.3;
+						cursor: pointer;
+					}
+					.interest {
+						opacity: 1.0;
+					}
+				}
+			}
+		}
+	}
+	.detail {
+		margin-top: 210px;
+		ul {
+			li {
+				input {
+					width: 70%;
+					margin-bottom: 5px;
+				}
+				.options {
+					margin-top: 5px;
+					.btn-edit {
+						border: 1px solid @principal;
+						color: @principal;
+						margin-right: 2px;
+					}
+					.btn-trash {
+						border: 1px solid @danger;
+						color: @danger;
+					}
+				}
+			}
+		}
+		.career {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+		.btn-add {
+			background-color: @principal;
+			color: @white;
+			margin-top: 20px;
+		}
+	}
+}
+
+#edit-dialog, #user-edit, #business-edit, #business-show, #course-edit, #course-show, #dependency-edit, #dependency-show {
+	.modal-body {
+		padding: 20px 50px;
+		h3 {
+			color: @principal;
+			margin: 0;
+			padding: 10px 0;
+			font-size: 22px;
+			padding-bottom: 30px;
+			i {
+				margin-right: 5px;
+			}
+		}
+		strong {
+			display: block;
+			color: @principal;
+		}
+		form, .col-md-6, .col-md-12 {
+			&.border {
+				border-right: 1px solid @gris-claro;
+			}
+			padding: 0 20px;
+			.form-group {
+				display: block;
+				label {
+					display: block;
+				}
+				input {
+					padding: 0 10px;
+					width: 100%;
+				}
+				.btn-password, .btn-admin {
+					background-color: @principal;
+					color: @white;
+					border: none;
+					padding: 10px 0;
+				}
+				.no-root {
+					opacity: 0.2;
+				}
+				textarea {
+					padding: 10px;
+					min-width: 100%;
+					width: 100%;
+					max-width: 100%;
+					min-height: 80px;
+					height: 80px;
+					max-height: 80px;
+				}
+				ul {
+					margin: 0;
+					padding: 10px 0;
+					list-style: none;
+					li {
+						display: inline-block;
+						margin-right: 5px;
+						img {
+							width: 50px;
+							height: 50px;
+							opacity: 0.3;
+							cursor: pointer;
+						}
+						.selected {
+							opacity: 1.0;
+						}
+					}
+				}
+			}
+		}
+		ul {
+			li {
+				margin: 10px 0;
+				.options {
+					margin-top: 5px;
+					.btn-edit {
+						border: 1px solid @principal;
+						color: @principal;
+						margin-right: 2px;
+					}
+					.btn-trash {
+						border: 1px solid @danger;
+						color: @danger;
+					}
+				}
+			}
+		}
+		.career {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			span {
+				font-weight: @bold;
+				text-transform: uppercase;
+				font-size: 12px;
+			}
+		}
+		.btn-add {
+			background-color: @principal;
+			color: @white;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+#users, #business, #adm-courses, #adm-dependencies {
+	h1 {
+		color: @principal;
+		font-size: 26px;
+	}
+	.panel {
+		.panel-body {
+			input {
+				float: left;
+				width: 50%;
+			}
+			.btn-add {
+				&:hover {
+					background-color: @principal - 20;
+				}
+				float: right;
+				height: 45px;
+				padding: 0 15px;
+				background-color: @principal;
+				border-color: @principal;
+				color: @white;
+			}
+			table {
+				td {
+					&.center {
+						text-align: center;
+						font-size: 20px;
+						color: @principal;
+					}
+					.btn {
+						width: 35px;
+					}
+					.btn-view, .btn-edit {
+						background-color: @white;
+						color: @principal;
+						border-color: @principal;
+					}
+					.btn-remove {
+						background-color: @white;
+						color: @danger;
+						border-color: @danger;
+					}
+					a {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}
+
+#modal-notification {
+	.modal-header {
+		background-color: @principal;
+		color: @white;
+		.close {
+			color: @white;
+			opacity: 1.0;
+		}
+		img {
+			float: left;
+			width: 45px;
+			height: 34px;
+			margin-right: 12px;
+			margin-top: 8px;
+		}
+		h3 {
+			display: block;
+			font-weight: @normal;
+			margin: 0;
+		}
+		.close {
+			span {
+				font-size: 24px;
+				font-weight: 400;
+			}
+		}
+	}
+	.modal-body {
+		.notifications {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			.notification {
+				&:hover {
+					background-color: #FFF4C6 + 20;
+				}
+				background-color: #FCF9EA;
+				cursor: pointer;
+				padding: 20px;
+				border: 1px solid @principal;
+				border-radius: 6px;
+				margin-bottom: 10px;
+				img {
+					width: 50px;
+					float: left;
+					margin-right: 20px;
+				}
+				.profile {
+					border-radius: 50%;
+					border: 3px solid @principal;
+				}
+				strong {
+					color: @principal;
+				}
+				ul {
+					list-style: none;
+				}
+				p {
+					margin-top: 10px;
+					margin-left: 70px;
+				}
+				.modal-footer {
+					margin: 0;
+					padding: 0;
+					padding-top: 17px;
+				}
+			}
+		}
+	}
+	.modal-footer {
+		text-align: left;
+		.btn-primary {
+			&:hover {
+				background-color: @principal - 20;
+			}
+			padding: 10px 20px;
+			border: none;
+			background-color: @principal;
+		}
+		.btn-default {
+			padding: 10px 20px;
+			border-color: @principal;
+			color: @principal;
+		}
+	}
+}

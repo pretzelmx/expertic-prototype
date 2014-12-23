@@ -1,0 +1,68 @@
+<div id="course-edit">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" ng-click="cancelCourse()">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title"><i class="fa {{data.icon}}"></i> {{data.title}}</h3>
+    </div>
+    <div class="modal-body row">
+        <p>{{data.message}}</p>
+        <form class="col-md-6 border">
+            <div class="form-group">
+                <label>Folio</label>
+                <input type="text" value="{{course.folio}}" ng-model="course.folio" placeholder="Folio">
+            </div>
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" value="{{course.name}}" ng-model="course.name" placeholder="Nombre del curso">
+            </div>
+             <div class="form-group">
+                <label>Descripción</label>
+                <textarea ng-model="course.description" placeholder="Descripción del curso (Características)">{{course.description}}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Duración (Horas)</label>
+                <input type="text" value="{{course.hours}}" ng-model="course.hours" placeholder="Duración (Horas)">
+            </div>
+            <div class="form-group">
+                <label>Formato</label>
+                <select ng-options="item.value as item.label for item in formats" ng-model="course.format">
+                </select>
+            </div>
+        </form>
+        <form class="col-md-6">
+            <div class="form-group">
+                <label>Categoría:</label>
+                <ul>
+                    <li>
+                        <img ng-class="{selected: categories[0].status}" ng-src="/assets/images/icon_development_dark.png" title="Cursos de desarrollo" ng-click="selectImage(0)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: categories[1].status}" ng-src="/assets/images/icon_infrastructure_dark.png" title="Cursos de infraestructura" ng-click="selectImage(1)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: categories[2].status}" ng-src="/assets/images/icon_telecomunication_dark.png" title="Cursos de telecomunicaciones" ng-click="selectImage(2)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: categories[3].status}" ng-src="/assets/images/icon_support_dark.png" title="Cursos de soporte" ng-click="selectImage(3)">
+                    </li>
+                    <li>
+                        <img ng-class="{selected: categories[4].status}" ng-src="/assets/images/icon_security_dark.png" title="Cursos de seguridad" ng-click="selectImage(4)">
+                    </li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label>Empresa</label>
+                <select ng-options="item._id as item.name for item in business" ng-model="course.business">
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Estado</label>
+                <select ng-options="item.value as item.label for item in status" ng-model="course.status">
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="saveCourse()">Confirmar</button>
+        <button class="btn btn-default" ng-click="cancelCourse()">Cancelar</button>
+    </div>
+</div>

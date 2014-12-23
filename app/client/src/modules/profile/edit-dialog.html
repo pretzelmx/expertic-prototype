@@ -1,0 +1,19 @@
+<div id="edit-dialog">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" ng-click="close()">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title"><i class="fa {{data.icon}}"></i> {{data.title}}</h3>
+    </div>
+    <div class="modal-body">
+        <p bind-html-unsafe="data.message"></p>
+        <form>
+            <div class="form-group" ng-repeat="object in keys">
+                <label>{{object.key}}</label>
+                <input type="{{object.type}}" value="{{values[$index]}}" ng-model="values[$index]" placeholder="{{object.key}}">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">Confirmar</button>
+        <button class="btn btn-default" ng-click="close()">Cancelar</button>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{
+  "name": "expertic",
+  "version": "0.1.0",
+  "description": "Servidor Web para la aplicación ExperTIC",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://bitbucket.org/adminpretzel/expertic-prototype.git"
+  },
+  "author": "Pretzel",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "express": "4.10.6",
+    "serve-favicon": "2.1.7"
+  }
+}
