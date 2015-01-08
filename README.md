@@ -88,12 +88,12 @@ La aplicación web se encuentra alojada en el siguiente servidor:
 	<tbody>
 		<tr>
 			<td>hola@pretzel.mx</td>
-			<td>123456</td>
+			<td>changeme</td>
 			<td>Administrador</td>
 		</tr>
 		<tr>
-			<td>usuario@expertic.gob.mx</td>
-			<td>123456</td>
+			<td>usuario@pretzel.mx</td>
+			<td>changeme</td>
 			<td>Usuario</td>
 		</tr>
 	</tbody>
